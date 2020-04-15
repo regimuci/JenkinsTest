@@ -17,21 +17,21 @@ pipeline {
             }
         }
 
-        //stage('Run Jar') {
-        //    steps {
-        //        bat 'java -jar target/JenkinsTest-0.0.1-SNAPSHOT.jar'
-        //    }
-        //}
+//        stage('Run Jar') {
+//            steps {
+//                bat 'java -jar target/JenkinsTest-0.0.1-SNAPSHOT.jar'
+//            }
+//        }
 
         stage('Create Docker Image') {
             steps {
-                bat 'docker build -t demo_image .'
+                bat 'docker build -t target/JenkinsTest-0.0.1-SNAPSHOT.jar .'
             }
         }
 
         stage('Run Container') {
             steps {
-                bat 'docker run -d -p 8081:8080 --name demoServer demo_image'
+                bat 'docker run -d -p 8081:8080 --name JenkinsTest JenkinsTest-0.0.1-SNAPSHOT.jar'
             }
         }
     }
