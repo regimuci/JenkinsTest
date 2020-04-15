@@ -19,7 +19,7 @@ pipeline {
 
         stage('Create artifact copy') {
             steps {
-                bat 'cp target/JenkinsTest.jar target/JenkinsTest.jar'
+                bat 'copy target/JenkinsTest.jar target/JenkinsTest.jar'
             }
         }
 
