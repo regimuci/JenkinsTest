@@ -17,11 +17,11 @@ pipeline {
             }
         }
 
-        stage('Create artifact copy') {
-            steps {
-                bat 'copy target/JenkinsTest-*.jar target/JenkinsTest.jar'
-            }
-        }
+        //stage('Run Jar') {
+        //    steps {
+        //        bat 'java -jar target/JenkinsTest-0.0.1-SNAPSHOT.jar'
+        //    }
+        //}
 
         stage('Create Docker Image') {
             steps {
